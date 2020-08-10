@@ -7,15 +7,24 @@ var textos=[0,1,2];
 var i=0;
 
 function Botones(props) {
+  
+  var noMas, noMenos;
+  if(props.indice==0){
+    noMenos=(true)
+  }
+  if(props.indice>=2){
+    noMas=(true)
+  }
+  
   return(
   <div className="botones">
     <div className="Volver">
-      <Button color="secondary" onClick={props.hiceclick}>
+      <Button disable={noMenos} color="secondary" onClick={props.hiceclick}>
         Atras 
       </Button>
     </div>
     <div className="Siguiente">
-      <Button color="primary" onClick={props.hiceclickAdelante}>
+      <Button disable={noMas} color="secondary" onClick={props.hiceclickAdelante}>
         Adelante
       </Button>
     </div>
@@ -25,6 +34,7 @@ function Botones(props) {
 }
 
 function App() {
+
   var [indice, setearindice]=useState(0);
   var clickadelante=() => {
     if(indice<=1){
@@ -52,7 +62,7 @@ function App() {
           {textos[indice]}
         </p>
     </div>
-    <Botones hiceclick={clickatras} hiceclickAdelante={clickadelante}></Botones>
+    <Botones indice={indice} hiceclick={clickatras} hiceclickAdelante={clickadelante}></Botones>
 </body>
   </>);
  
