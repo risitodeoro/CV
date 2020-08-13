@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import './styles.css';
 
 var textos=[0,1,2];
+var cambiomentira;
 
 function Botones(props) {
   
@@ -14,7 +15,6 @@ function Botones(props) {
   if(props.indice>=2){
     noMas=true
   }
-  /* le agrego esto para ver si me deja pushear*/
 
   return(
   <div className="botones">
