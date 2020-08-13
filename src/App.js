@@ -10,21 +10,21 @@ function Botones(props) {
   
   var noMas, noMenos;
   if(props.indice==0){
-    noMenos=(true)
+    noMenos=true
   }
   if(props.indice>=2){
-    noMas=(true)
+    noMas=true
   }
   
   return(
   <div className="botones">
     <div className="Volver">
-      <Button disable={noMenos} color="secondary" onClick={props.hiceclick}>
+      <Button disabled={noMenos} color="secondary" onClick={props.hiceclick}>
         Atras 
       </Button>
     </div>
     <div className="Siguiente">
-      <Button disable={noMas} color="secondary" onClick={props.hiceclickAdelante}>
+      <Button disabled={noMas} color="secondary" onClick={props.hiceclickAdelante}>
         Adelante
       </Button>
     </div>
