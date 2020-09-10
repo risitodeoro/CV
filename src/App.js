@@ -3,9 +3,34 @@ import logo from './logo.svg';
 import Button from '@material-ui/core/Button';
 import './styles.css';
 import ImagenPerfil from './perfil.png';
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
 
 var textos=[0,1,2];
 var cambiomentira;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: 20,
+    },
+  },
+  large: {
+    width: 200,
+    height: 200,
+  },
+}))
+
+function ImageAvatars() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Avatar alt="Santiago Risso" src={ImagenPerfil} classname={classes.large}/>
+    </div>
+  );
+}
 
 function Botones(props) {
   
@@ -57,6 +82,7 @@ function App() {
     <div className="Titulos">
       <h1>Santiago Risso</h1>
       <h2>Studying to be a Developer.</h2>
+      <ImageAvatars></ImageAvatars>
     </div>
     <div className="Fotoheader">
       <img src={ImagenPerfil}></img>
