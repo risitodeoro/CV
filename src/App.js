@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import Button from '@material-ui/core/Button';
 import './styles.css';
+import ImagenPerfil from './perfil.png';
 
 var textos=[0,1,2];
 var cambiomentira;
@@ -51,9 +52,15 @@ function App() {
     }
   };
   return (<>
+
 <header>
-    <h1> Falling in the real-time trap </h1>
-    <h2> The behind the scenes in the streaming data world. </h2>
+    <div className="Titulos">
+      <h1>Santiago Risso</h1>
+      <h2>Studying to be a Developer.</h2>
+    </div>
+    <div className="Fotoheader">
+      <img src={ImagenPerfil}></img>
+    </div>
 </header>
 
 <body>
