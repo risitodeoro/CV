@@ -1,7 +1,4 @@
-div.Titulos{
-    width: 600px;
-    margin-top: 10px;
-}
+
 
 h1{
     color: whitesmoke;
@@ -62,8 +59,8 @@ div.Siguiente{
 }
 
 
-div.large{
-    font-size: 40px;
-  width: 38px;
-  height: 38px;
+.ImageAvatars{
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }

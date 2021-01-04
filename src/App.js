@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   large: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
   },
 }))
 
@@ -27,7 +27,7 @@ function ImageAvatars() {
 
   return (
     <div className={classes.root}>
-      <Avatar alt="Santiago Risso" src={ImagenPerfil} classname={classes.large}/>
+      <Avatar alt="Santiago Risso" src={ImagenPerfil} className={classes.large}/>
     </div>
   );
 }
@@ -80,12 +80,11 @@ function App() {
 
 <header>
     <div className="Titulos">
-      <h1>Santiago Risso</h1>
-      <h2>Studying to be a Developer.</h2>
-      <ImageAvatars></ImageAvatars>
+        <h1>Santiago Risso</h1>
+        <h2>Studying to be a Developer.</h2>
     </div>
-    <div className="Fotoheader">
-      <img src={ImagenPerfil}></img>
+    <div classNAme="avatar">
+        <ImageAvatars></ImageAvatars>
     </div>
 </header>
 
