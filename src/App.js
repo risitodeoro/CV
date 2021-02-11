@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import Button from '@material-ui/core/Button';
 import './styles.css';
 import ImagenPerfil from './perfil.png';
@@ -7,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 var textos=[0,1,2];
-var cambiomentira;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +33,7 @@ function ImageAvatars() {
 function Botones(props) {
   
   var noMas, noMenos;
-  if(props.indice==0){
+  if(props.indice===0){
     noMenos=true
   }
   if(props.indice>=2){
@@ -70,7 +68,7 @@ function App() {
     }
   };
   var clickatras=() => {
-    if(indice!=0){
+    if(indice!==0){
       setearindice(indice-1)
     }else{
       setearindice(indice+2)
@@ -83,7 +81,7 @@ function App() {
         <h1>Santiago Risso</h1>
         <h2>Studying to be a Developer.</h2>
     </div>
-    <div classNAme="avatar">
+    <div className="Avatars">
         <ImageAvatars></ImageAvatars>
     </div>
 </header>
