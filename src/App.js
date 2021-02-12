@@ -4,10 +4,16 @@ import './styles.css';
 import ImagenPerfil from './perfil.png';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import PropTypes from 'prop-types';
+import { CenterFocusWeakOutlined } from '@material-ui/icons';
 
 var textos=[0,1,2];
 
-const useStyles = makeStyles((theme) => ({
+const useStyless = makeStyles((theme) => ({
   root: {
     display: 'flex',
     '& > *': {
@@ -21,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function ImageAvatars() {
-  const classes = useStyles();
+  const classes = useStyless();
 
   return (
     <div className={classes.root}>
@@ -57,6 +63,102 @@ function Botones(props) {
 
 }
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    width: 1400,
+    height: 500,
+  },
+  tabs: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
+}));
+
+function VerticalTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        value={value}
+        onChange={handleChange}
+        aria-label="Vertical tabs example"
+        className={classes.tabs}
+      >
+        <Tab label="Experiencia en IT" {...a11yProps(0)} />
+        <Tab label="Trabajos fuera de IT" {...a11yProps(1)} />
+        <Tab label="Item three" {...a11yProps(2)} />
+        <Tab label="Item Four" {...a11yProps(3)} />
+        <Tab label="Item Five" {...a11yProps(4)} />
+        <Tab label="Item Six" {...a11yProps(5)} />
+        <Tab label="Item Seven" {...a11yProps(6)} />
+      </Tabs>
+      <TabPanel value={value} index={0}>
+        Item One
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Item Two
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Four
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Item Five
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        Item Six
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        Item Seven
+      </TabPanel>
+    </div>
+  );
+}
+
 function App() {
 
   var [indice, setearindice]=useState(0);
@@ -87,12 +189,9 @@ function App() {
 </header>
 
 <body>
-    <div className="MainText">
-        <p>
-          {textos[indice]}
-        </p>
-    </div>
-    <Botones indice={indice} hiceclick={clickatras} hiceclickAdelante={clickadelante}></Botones>
+  <div className="Pestanas">
+    <VerticalTabs></VerticalTabs>
+  </div>
 </body>
   </>);
  
