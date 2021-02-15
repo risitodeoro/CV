@@ -9,7 +9,10 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
-import { CenterFocusWeakOutlined } from '@material-ui/icons';
+import { Autorenew, CenterFocusWeakOutlined } from '@material-ui/icons';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { purple } from '@material-ui/core/colors';
+import { ThemeProvider } from '@material-ui/styles';
 
 var textos=[0,1,2];
 
@@ -95,18 +98,29 @@ function a11yProps(index) {
   };
 }
 
+const colortab = createMuiTheme({
+  palette:{
+    primary:{
+      main: '#FFD4E9',
+    },
+  },
+});
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.primary.main,
     display: 'flex',
-    width: 1400,
-    height: 500,
+    margin: 'auto',
+    width: '75%',
+    height: 400,
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
   },
 }));
+
+
 
 function VerticalTabs() {
   const classes = useStyles();
@@ -126,13 +140,11 @@ function VerticalTabs() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Experiencia en IT" {...a11yProps(0)} />
-        <Tab label="Trabajos fuera de IT" {...a11yProps(1)} />
-        <Tab label="Item three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
+        <Tab label="Personal information." {...a11yProps(0)} />
+        <Tab label="IT jobs." {...a11yProps(1)} />
+        <Tab label="Other jobs." {...a11yProps(2)} />
+        <Tab label="Misc" {...a11yProps(3)} />
         <Tab label="Item Five" {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         Item One
@@ -148,12 +160,6 @@ function VerticalTabs() {
       </TabPanel>
       <TabPanel value={value} index={4}>
         Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
       </TabPanel>
     </div>
   );
@@ -190,7 +196,9 @@ function App() {
 
 <body>
   <div className="Pestanas">
-    <VerticalTabs></VerticalTabs>
+    <ThemeProvider theme={colortab}>
+      <VerticalTabs></VerticalTabs>
+    </ThemeProvider>
   </div>
 </body>
   </>);
