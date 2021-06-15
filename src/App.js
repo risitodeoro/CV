@@ -66,7 +66,7 @@ function Botones(props) {
 
 }
 
-function TabPanel(props) {
+/*function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -164,6 +164,7 @@ function VerticalTabs() {
     </div>
   );
 }
+*/
 
 function App() {
 
@@ -185,20 +186,24 @@ function App() {
   return (<>
 
 <header>
-    <div className="Titulos">
+    <div className="bckgrnd">
+    <section className="Titulos">
         <h1>Santiago Risso</h1>
         <h2>Studying to be a Developer.</h2>
-    </div>
+    </section>
     <div className="Avatars">
         <ImageAvatars></ImageAvatars>
+    </div>
     </div>
 </header>
 
 <body>
-  <div className="Pestanas">
-    <ThemeProvider theme={colortab}>
-      <VerticalTabs></VerticalTabs>
-    </ThemeProvider>
+  <div>
+  <section className="Personalinfo">
+    <h3>
+    Hola! Mi nombre es Santiago, tengo 26 años y vivo en la ciudad de Mar del Plata. Empezé a aprender a programar en el año 2019 y hoy en dia, sigo adquiriendo conocimientos para mejorar mi rendimiento.
+    </h3>
+  </section>
   </div>
 </body>
   </>);
