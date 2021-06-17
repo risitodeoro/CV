@@ -200,9 +200,6 @@ function App() {
 <body>
   <div>
   <section className="Personalinfo">
-    <h3>
-    Hola! Mi nombre es Santiago, tengo 26 años y vivo en la ciudad de Mar del Plata. Empezé a aprender a programar en el año 2019 y hoy en dia, sigo adquiriendo conocimientos para mejorar mi rendimiento.
-    </h3>
   </section>
   </div>
 </body>
